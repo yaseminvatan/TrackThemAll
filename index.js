@@ -25,8 +25,11 @@ const menu = async () => {
             name: 'name',
             message: 'Enter Department name',
         });
-    await db.addDepartment(name);
-    console.log('Department ${name} added!');
-    break;
+        await db.addDepartment(name);
+        console.log('Department ${name} added!');
+        break;
+    case 'Exit':
+        process.exit();
   }
-}
+  menu();
+};
