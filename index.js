@@ -33,3 +33,4 @@ const menu = async () => {
   }
   menu();
 };
+menu();
