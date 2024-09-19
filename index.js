@@ -1,5 +1,5 @@
 const inquirer = require('inquirer');
-const db = require('./db/queries');
+const db = require('./db/queries.js');
 
 const menu = async () => {
   const { action } = await inquirer.prompt([
