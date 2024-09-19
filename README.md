@@ -111,7 +111,8 @@ When adding a department, you'll be prompted to enter the name of the new depart
 
 The database contains three main tables:
 
-ADD FHOTO
+![alt text](<Screenshot 2024-09-18 at 2.46.24 PM.png>)
+
 
 ## Features
 
