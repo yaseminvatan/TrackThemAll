@@ -1,5 +1,5 @@
 const inquirer = require('inquirer');
-const db = require('./db/queries.js');
+const db = require("./db/queries.js");
 
 const menu = async () => {
   const { action } = await inquirer.prompt([
@@ -63,12 +63,15 @@ const menu = async () => {
         { type: 'input', name: 'role_id', message: 'Enter Role ID:' },
         { type: 'input', name: 'manager_id', message: 'Enter Manager ID (or leave blank):', default: null },
       ]);
+        // Ensure manager_id is either an integer or null
+        const managerId = employeeDetails.manager_id === '' ? null : employeeDetails.manager_id;
       await db.addEmployee(
         employeeDetails.first_name,
         employeeDetails.last_name,
         employeeDetails.role_id,
         employeeDetails.manager_id
       );
+      
       console.log(`Employee ${employeeDetails.first_name} ${employeeDetails.last_name} added!`);
       break;
 

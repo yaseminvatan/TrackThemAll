@@ -1,5 +1,16 @@
 const pool = require('./connection');
 
+// Function to get all departments
+const getDepartments = async () => {
+  const res = await pool.query('SELECT * FROM department');
+  return res.rows;
+};
+// Add Department
+const addDepartment = async (name) => {
+  await pool.query("INSERT INTO department (name) VALUES ($1)", [name]);
+};
+
+
 // View all roles
 const getRoles = async () => {
   const res = await pool.query(`
@@ -31,6 +42,8 @@ const getAllEmployees = async () => {
 
 // Add a new employee
 const addEmployee = async (first_name, last_name, role_id, manager_id) => {
+  // Convert empty string for manager_id to null
+  const manager = manager_id === '' ? null : manager_id;
   await pool.query(
     "INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ($1, $2, $3, $4)",
     [first_name, last_name, role_id, manager_id]
