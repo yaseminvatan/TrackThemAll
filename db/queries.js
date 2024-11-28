@@ -44,6 +44,7 @@ const getAllEmployees = async () => {
 const addEmployee = async (first_name, last_name, role_id, manager_id) => {
   // Convert empty string for manager_id to null
   const manager = manager_id === '' ? null : manager_id;
+  console.log('checking manager id', manager);
   await pool.query(
     "INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ($1, $2, $3, $4)",
     [first_name, last_name, role_id, manager_id]
